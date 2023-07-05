@@ -1,11 +1,5 @@
 # HLS Playback Problems
 
-The main `problem.m3u8` reproduces the issue.
+The main `problem.m3u8` reproduces the issue. 1661.ts is the cursed file.
 
-Doing a no-op ffmpeg remux fixes the issue, apparently.
-
-```
-mkdir no-changes
-cp problem.m3u8 no-changes
-find . -maxdepth 1 -type f -name '*.ts' -exec ffmpeg -i {} -y -vsync passthrough -copyts -c copy no-changes/{} \;
-```
+Doing a no-op ffmpeg remux fixes the issue, apparently. Run `make`.
